@@ -10,7 +10,7 @@ const routes = [
         component: () => import('../views/Layout.vue'),
         children: [
             {
-                path: '/',
+                path: '/index',
                 name: 'index',
                 meta: {
                     title: "生成落地页",
@@ -24,6 +24,11 @@ const routes = [
                 },
                 component: () => import('../pages/pageCreate/pageCreate.vue')
             },]
+    },
+    {
+        path: '/login',
+        name: "login",
+        component: () => import('../pages/login/login.vue')
     }, {
         path: '*',
         name: "NotFound",

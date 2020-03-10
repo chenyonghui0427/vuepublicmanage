@@ -10,6 +10,7 @@
             >{{item.name}}</div>
         </div>
         <div class="center" @dragover.stop="checkDragOver($event)"></div>
+        <component>1212</component>
     </div>
 </template>
 <script>
@@ -50,7 +51,6 @@ export default {
                 pointY: ev.offsetY
             };
             this.dragComponent = item;
-            console.log(this.dragComponent);
             // this.$store.commit("resetActiveComponent");
             // //兼容firefox
             // ev.dataTransfer.setData("type", item.type);
@@ -61,10 +61,10 @@ export default {
         checkDragOver(ev) {
             console.log(ev);
             ev.preventDefault();
-            // let height = ev.currentTarget.offsetHeight;
-            // let topDis = ev.offsetY - this.dragComponent.extra.pointY;
-            // let bottomDis = height - topDis - this.dragComponent.extra.height;
-            // let leftDis = ev.offsetX - this.dragComponent.extra.pointX;
+            let height = ev.currentTarget.offsetHeight;
+            let topDis = ev.offsetY - this.dragComponent.extra.pointY;
+            let bottomDis = height - topDis - this.dragComponent.extra.height;
+            let leftDis = ev.offsetX - this.dragComponent.extra.pointX;
             // //层叠子组件的dragover处理
             // if (child) {
             //     topDis = topDis + child.top;
