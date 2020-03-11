@@ -1,7 +1,8 @@
 <template>
     <div class="aa">
         <div>122112</div>
-        <div>
+        <div style="
+    display: -webkit-box;">
             <a-carousel :afterChange="onChange">
                 <div>
                     <h3>1</h3>
@@ -30,6 +31,7 @@ export default {
 </script>
 <style scoped>
 .aa {
+    display: -webkit-box;
     display: flex;
 }
 /* For demo */

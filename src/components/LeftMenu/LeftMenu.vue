@@ -1,7 +1,12 @@
 <template>
     <div class="menu-container" :style="collapsed?'width:80px':'width:250px'">
         <div class="menu-content">
-            <a-menu :inlineCollapsed="collapsed" :defaultSelectedKeys="['1']" mode="inline">
+            <a-menu
+                :inlineCollapsed="collapsed"
+                :defaultSelectedKeys="['1']"
+                mode="inline"
+                theme="dark"
+            >
                 <a-sub-menu v-for="(item,index) in navigate" :key="`sub${index}`">
                     <span slot="title">
                         <a-icon type="user" />
@@ -10,7 +15,7 @@
                     <a-menu-item
                         v-for="i in item.child"
                         :key="`${i.id}`"
-                        @click="selectMenu(item)"
+                        @click="selectMenu(item,i)"
                     >{{i.title}}</a-menu-item>
                 </a-sub-menu>
             </a-menu>
@@ -51,8 +56,8 @@ export default {
         };
     },
     methods: {
-        selectMenu(item) {
-            let breadList = handleBreadCrumb(item);
+        selectMenu(item, i) {
+            let breadList = handleBreadCrumb(item, i);
 
             this.$store.commit("ADD_BREAD", breadList);
         }
@@ -65,6 +70,7 @@ export default {
     background: #fff;
     transition: 0.3s;
     border-right: 1px solid #ccc;
+    background: #001529;
 }
 .menu-content {
     position: absolute;

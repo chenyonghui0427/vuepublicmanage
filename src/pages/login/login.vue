@@ -1,7 +1,9 @@
 <template>
     <div class="background">
         <div class="login_container">
-            <div class="add_count" ref="add" @click="add"></div>
+            <div class="login_title">
+                <h1>登陆</h1>
+            </div>
             <div class="form_item">
                 <div ref="username_label" class="label" @click="clickFocusUsername">用户名</div>
                 <input
@@ -22,7 +24,7 @@
                 />
                 <div ref="password_line" class="line"></div>
             </div>
-            <div class="submit"></div>
+            <div class="submit" @click="$router.push('/index')">登陆</div>
         </div>
     </div>
 </template>
@@ -60,13 +62,6 @@ export default {
         },
         clickFocusPassword() {
             this.$refs.password.focus();
-        },
-        add() {
-            console.log(this.$refs.add.style);
-            this.$refs.add.style.top = "50%";
-            // this.$refs.add.style.bottom = "50%";
-            this.$refs.add.style.right = "130px";
-            // this.$refs.add.style.top="50%"
         }
     }
 };
@@ -85,24 +80,44 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    z-index: -2;
 }
 .login_container {
     width: 400px;
     border-radius: 10px;
-    /* padding: 24px; */
     padding: 60px 50px 40px 50px;
     background: #fff;
     position: relative;
+    /* z-index: 999; */
 }
-.add_count {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
+.login_container::before {
+    content: "";
     position: absolute;
-    top: 50%;
-    right: -70px;
+    width: 400px;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    transform: scale(0.95);
+    z-index: -1;
+}
+.login_title::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 0;
+    bottom: 0;
+    width: 6px;
     background: red;
-    transition: 0.5s;
+}
+.login_title {
+    position: relative;
+}
+.login_title h1 {
+    color: red;
+    font-weight: 600;
 }
 .form_item {
     width: 100%;
@@ -139,6 +154,7 @@ export default {
 }
 .username_input,
 .password_input {
+    width: 100%;
     height: 60px;
     border: none;
     transition: 0.2s;
@@ -148,5 +164,21 @@ input {
     border: 0;
     outline: none;
     z-index: 99;
+}
+.submit {
+    width: 220px;
+    margin: 50px auto;
+    text-align: center;
+    border: 3px solid #ccc;
+    line-height: 60px;
+    cursor: pointer;
+    transition: 0.5s;
+    color: #ccc;
+    font-weight: 600;
+    font-size: 20px;
+}
+.submit:hover {
+    border: 3px solid red;
+    color: red;
 }
 </style>

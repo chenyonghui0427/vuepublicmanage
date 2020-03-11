@@ -34,6 +34,7 @@ export default {
 <style scoped>
 .layout-container {
     display: flex;
+    display: -webkit-box;
     flex-flow: column;
     margin: 0;
     width: 100vw;
@@ -41,11 +42,13 @@ export default {
 }
 .layout-content {
     display: flex;
+    display: -webkit-box;
     flex: 1;
 }
 .right-content {
     flex: 1;
     display: flex;
+    display: -webkit-box;
     flex-flow: column;
 }
 .main-content {

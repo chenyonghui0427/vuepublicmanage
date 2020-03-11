@@ -7,5 +7,7 @@
 <style>
 #app {
     background: #f0f2f5;
+
+    display: -webkit-box;
 }
 </style>

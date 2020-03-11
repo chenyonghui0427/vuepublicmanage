@@ -1,16 +1,11 @@
 <template>
     <div class="bread-crumb">
-        <a-breadcrumb>
-            <a-breadcrumb-item v-for="(item,index) in bread" :key="index">{{item.title}}</a-breadcrumb-item>
-            <!-- <a-breadcrumb-item>
-                <a href>Application Center</a>
-            </a-breadcrumb-item>
-            <a-breadcrumb-item>
-                <a href>Application List</a>
-            </a-breadcrumb-item>
-            <a-breadcrumb-item>An Application</a-breadcrumb-item>-->
-        </a-breadcrumb>
-        <!-- <span v-for="(item,index) in bread" :key="index">{{item.title}}</span> -->
+        <el-tag
+            class="bread-item"
+            v-for="(item,index) in bread"
+            :key="index"
+            closable
+        >{{item.title}}</el-tag>
     </div>
 </template>
 <script>
@@ -35,5 +30,10 @@ export default {
 .bread-crumb {
     background: #f0f2f5;
     padding: 10px 20px;
+    overflow: scroll;
+    height: 70px;
+}
+.bread-item {
+    margin-right: 5px;
 }
 </style>
